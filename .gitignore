@@ -2,6 +2,8 @@
 *.rbc
 .bundle
 .config
+.vagrant
+.rvmrc
 coverage
 InstalledFiles
 lib/bundler/man
@@ -10,7 +12,9 @@ rdoc
 spec/reports
 test/tmp
 test/version_tmp
-tmp
+tmp/
+vendor/
+log/*.log
 
 # YARD artifacts
 .yardoc
