@@ -4,6 +4,7 @@
 .config
 .vagrant
 .rvmrc
+.rspec
 coverage
 InstalledFiles
 lib/bundler/man
