@@ -3,3 +3,12 @@
 
 en:
   hello: "Hello world"
+  name: 'Name'
+  description: 'Description'
+  search: 'Search'
+  new_project: 'New Project'
+  new_issue: 'New Issue'
+  new_sprint: 'New Sprint'
+  todo: 'TODO'
+  doing: 'DOING'
+  done: 'DONE'

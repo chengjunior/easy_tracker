@@ -1,0 +1,45 @@
+<script>
+  $(function() {
+    $( "#sortable1, #sortable2, #sortable3").sortable({
+      connectWith: ".connectedSortable"
+    }).disableSelection();
+
+
+  });
+</script>
+
+<form class="form-inline">
+  <select>
+    <%= options_for_select(@project.sprints) %>
+  </select>
+  <input type="button" value="<%= t('new_sprint') %>" class="btn btn-primary">
+</form>
+
+<div class="row">
+<div class="span4">
+  <h3 align="center"><%= t('todo') %></h3>
+  <ul id="sortable1" class="connectedSortable dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+    <% @sprint.todo_cards.each do |card| %>
+      <li><a tabindex="-1" href="#"><%= card.name %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="span4">
+  <h3 align="center"><%= t('doing') %></h3>
+  <ul id="sortable2" class="connectedSortable dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+    <% @sprint.doing_cards.each do |card| %>
+      <li><a tabindex="-1" href="#"><%= card.name %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="span4">
+  <h3 align="center"><%= t('done') %></h3>
+  <ul id="sortable3" class="connectedSortable dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+    <% @sprint.done_cards.each do |card| %>
+      <li><a tabindex="-1" href="#"><%= card.name %></a></li>
+    <% end %>
+  </ul>
+</div>
+</div>

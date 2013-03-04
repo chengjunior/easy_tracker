@@ -1,0 +1,21 @@
+<input type="button" value="<%= t('new_issue') %>" class="btn btn-primary">
+<form class="form-search pull-right">
+  <input type="text" class="search-query" placeholder="<%= t('search') %>">
+</form>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('name') %></th>
+      <th><%= t('description') %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @project.issues.each do |issue| %>
+    <tr>
+      <td><%= link_to issue.title, "/projects/#{@project.id}/issues/#{issue.id}" %></td>
+      <td><%= issue.description %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

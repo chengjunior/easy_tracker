@@ -1,2 +1,5 @@
-class IssuesController < ApplicationController
+class IssuesController < TrackerController
+  def index
+    
+  end
 end

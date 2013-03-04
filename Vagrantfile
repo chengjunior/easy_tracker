@@ -7,7 +7,7 @@ Vagrant::Config.run do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "precise64"
+  config.vm.box = "lucid32"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -60,7 +60,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe "build-essential"
     # chef.add_recipe "vim"
     chef.add_recipe "openssl"
-    # chef.add_recipe "mongodb::10gen_repo" # if using mongodb
+    chef.add_recipe "mongodb::10gen_repo" # if using mongodb
     chef.add_recipe "main"
   end
 
