@@ -1,7 +1,24 @@
+<h2><%= @project.name %> <%= t('stories') %></h2>
 <input type="button" value="<%= t('new_issue') %>" class="btn btn-primary">
-<form class="form-search pull-right">
-  <input type="text" class="search-query" placeholder="<%= t('search') %>">
-</form>
+<ul class="pull-right inline">
+  <li>
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        Status
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Opened</a></li>
+        <li><a href="#">Closed</a></li>
+      </ul>
+    </div>
+  </li>
+<li>
+  <form class="form-search">
+    <input type="text" class="search-query" placeholder="<%= t('search') %>">
+  </form>
+</li>
+</ul>
 
 <table class="table table-striped">
   <thead>

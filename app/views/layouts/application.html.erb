@@ -40,7 +40,32 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">EasyTracker</a>
+          <a class="brand" href="/">EasyTracker</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav pull-right">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <%= t('projects') %> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a  href="/projects"><%= t('all_projects') %></a></li>
+                  <li class="divider"></li>
+                  <% @projects.each do |project| %>
+                    <li><%= link_to project.name, project_url(project) %></li>
+                  <% end %>
+                </ul>
+              </li>
+              <% if @project.present? %>
+                <li><%= link_to t('dashboard'), project_url(@project) %></li>
+                <li><%= link_to t('stories'), project_issues_url(@project) %></li>
+              <% end %>
+              <li>
+                <p class="navbar-text">
+                  Logged in as <a href="#" class="navbar-link">Username</a>
+                </p>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
@@ -48,6 +73,12 @@
     <div class="container">
       <div class="row">
         <div class="span12">
+          <% if flash[:alert] %>
+            <p class="alert alert-error"><%= flash[:alert] %></p>
+          <% end %>
+          <% if flash[:notice] %>
+            <p class="alert alert-success"><%= flash[:notice] %></p>
+          <% end %>
           <%= yield %>
         </div>
       </div><!--/row-->

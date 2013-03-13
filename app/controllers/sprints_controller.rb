@@ -1,2 +1,2 @@
-class SprintsController < ApplicationController
+class SprintsController < InheritedResources::Base
 end

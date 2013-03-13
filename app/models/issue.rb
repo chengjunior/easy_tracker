@@ -7,4 +7,8 @@ class Issue
 
   belongs_to :project
   has_many :cards
+
+  def new_cards
+    cards.where(status: nil)
+  end
 end

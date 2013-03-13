@@ -1,2 +1,2 @@
-class CardsController < ApplicationController
+class CardsController < InheritedResources::Base
 end

@@ -6,4 +6,6 @@ class Project
 
   has_many :issues
   has_many :sprints
+
+  validates_presence_of :name
 end

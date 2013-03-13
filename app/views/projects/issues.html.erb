@@ -1,6 +1,4 @@
-<h1>Select project to EasyTracker</h1>
-
-<input type="button" value="<%= t('new_project') %>" class="btn btn-primary">
+<input type="button" value="<%= t('new_issue') %>" class="btn btn-primary">
 <form class="form-search pull-right">
   <input type="text" class="search-query" placeholder="<%= t('search') %>">
 </form>
@@ -13,10 +11,10 @@
     </tr>
   </thead>
   <tbody>
-  <% @projects.each do |project| %>
+  <% @project.issues.each do |issue| %>
     <tr>
-      <td><%= link_to project.name, "projects/#{project.id}" %></td>
-      <td><%= project.description %></td>
+      <td><%= link_to issue.title, "/projects/#{@project.id}/issues/#{issue.id}" %></td>
+      <td><%= issue.description %></td>
     </tr>
   <% end %>
   </tbody>

@@ -1,0 +1,15 @@
+<%= form_for @project, html: { id: 'modal-form', :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <label class="control-label" for="name"><%= t('name') %></label>
+    <div class="controls">
+      <%= f.text_field(:name, placeholder: t('name')) %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="description"><%= t('description') %></label>
+    <div class="controls">
+      <%= f.text_area(:description, rows: 3, placeholder: t('description')) %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,57 @@
+<h1>Select project to EasyTracker</h1>
+
+<!-- Button to trigger modal -->
+<%= link_to t('new_project'), new_project_url, { :class => 'btn btn-primary', role: 'button', 'data-toggle' => 'modal', 'data-target' => '#project_modal' } %>
+
+<!-- Modal -->
+<div id="project_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel"><%= t('new_project') %></h3>
+  </div>
+  <div class="modal-body"></div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('close') %></button>
+    <%= submit_tag(t('save'), id: 'modal-form-submit', :class => 'btn btn-primary') %>
+  </div>
+</div>
+
+<script>
+  $('#modal-form-submit').on('click', function(e){
+    // We don't want this to act as a link so cancel the link action
+    e.preventDefault();
+    // Find form and submit it
+    $('#modal-form').submit();
+  });
+</script>
+
+<form class="form-search pull-right">
+  <input type="text" class="search-query" placeholder="<%= t('search') %>">
+</form>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('name') %></th>
+      <th><%= t('description') %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @projects.each do |project| %>
+    <tr>
+      <td><%= link_to project.name, project_url(project) %></td>
+      <td><%= project.description %></td>
+      <td>
+        <div class="btn-group">
+          <%= link_to edit_project_url(project), { :class => 'btn btn-mini', role: 'button', 'data-toggle' => 'modal', 'data-target' => '#project_modal' } do %>
+            <i class="icon-edit"></i>
+          <% end %>
+          <%= link_to project, confirm: t('project.messages.confirm_delete', name: project.name), method: :delete, :class => 'btn btn-mini' do %>
+            <i class="icon-trash"></i>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
