@@ -1,6 +1,6 @@
-class ProjectsController < TrackerController
+class ProjectsController < InheritedResources::Base
   
   def dashboard
-    @sprint = @project.sprints.last
+    @sprint = resource.sprints.last
   end
 end

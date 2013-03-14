@@ -2,13 +2,4 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
-  name: 'Name'
-  description: 'Description'
-  search: 'Search'
-  new_project: 'New Project'
-  new_issue: 'New Issue'
-  new_sprint: 'New Sprint'
-  todo: 'TODO'
-  doing: 'DOING'
-  done: 'DONE'
+  brand: Easy Tracker
