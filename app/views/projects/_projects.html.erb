@@ -1,0 +1,14 @@
+<% @projects.each do |project| %>
+  <tr>
+    <td><%= link_to project.name, project_url(project) %></td>
+    <td><%= project.description %></td>
+    <td>
+      <div class="btn-group">
+        <a class="btn btn-mini" href="#"><i class="icon-edit"></i></a>
+        <%= link_to project, confirm: t('project.messages.confirm_delete', name: project.name), method: :delete, :class => 'btn btn-mini' do %>
+          <i class="icon-trash"></i>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+<% end %>

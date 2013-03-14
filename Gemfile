@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 gem 'mongoid', '3.1.2'
-gem 'twitter-bootstrap-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -19,6 +18,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'inherited_resources'

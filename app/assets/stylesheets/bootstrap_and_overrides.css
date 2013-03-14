@@ -12,11 +12,3 @@ body {
 }
 
 @import "twitter/bootstrap/responsive";
-
-.dropdown-menu {
-  display: block;
-  position: static;
-  width: 100%;
-  margin-bottom: 5px;
-  height: 300px;
-}

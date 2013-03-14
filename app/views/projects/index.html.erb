@@ -1,0 +1,57 @@
+<h1>Select project to EasyTracker</h1>
+
+<!-- Button to trigger modal -->
+<%= link_to t('new_project'), new_project_url, { :class => 'btn btn-primary', role: 'button', 'data-toggle' => 'modal', 'data-target' => '#project_modal', remote: true } %>
+
+<!-- Modal -->
+<div id="project_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+
+<form class="form-search pull-right">
+  <input type="text" class="search-query" placeholder="<%= t('search') %>">
+</form>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('name') %></th>
+      <th><%= t('description') %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @projects.each do |project| %>
+    <tr>
+      <td><%= link_to project.name, project_url(project) %></td>
+      <td><%= project.description %></td>
+      <td>
+        <div class="btn-group">
+          <%= link_to edit_project_url(project), { :class => 'btn btn-mini', role: 'button', 'data-toggle' => 'modal', 'data-target' => '#project_modal' } do %>
+            <i class="icon-edit"></i>
+          <% end %>
+          <%= link_to project, confirm: t('project.messages.confirm_delete', name: project.name), method: :delete, :class => 'btn btn-mini' do %>
+            <i class="icon-trash"></i>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+
+  <script>
+    $('#modal-form-submit').on('click', function(e){
+      // We don't want this to act as a link so cancel the link action
+      e.preventDefault();
+      // Find form and submit it
+      $('#modal-form').submit();
+    });
+
+    ($("a[data-toggle=modal]")).click(function() {
+      console.log("asdasdas");
+      var target, url;
+      target = ($(this)).attr('data-target');
+      url = ($(this)).attr('href');
+      console.log(url);
+      return ($(target)).load(url);
+    });
+  </script>
+</table>

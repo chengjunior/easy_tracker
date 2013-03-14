@@ -3,3 +3,19 @@
 
 en:
   brand: Easy Tracker
+  name: Name
+  description: Description
+  search: Search
+  new_project: New Project
+  new_issue: New Issue
+  new_sprint: New Sprint
+  projects: Projects
+  all_projects: All Projects
+  stories: Stories
+  todo: TODO
+  doing: Doing
+  done: Done
+  save: Save
+  project:
+    messages:
+      confirm_delete: You sure you want to delete the project %{name}?

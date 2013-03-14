@@ -12,12 +12,14 @@ EasyTracker::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
+  
   resources :projects do
-    resource :issues
+    resources :issues
     resource :sprints
-    get 'dashboard', :on => :member
   end
+  # get 'projects/:id' => 'issues#index'
+  # get 'projects/:id/issues' => 'issues#index'
+  # get 'projects/:id/dashboard' => 'projects#dashboard'
 
   # Sample resource route with options:
   #   resources :products do
@@ -54,6 +56,7 @@ EasyTracker::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
+
   root :to => 'projects#index'
 
   # See how all your routes lay out with "rake routes"

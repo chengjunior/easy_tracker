@@ -37,17 +37,17 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <%= link_to t('brand'), root_path, class: 'brand' %>
-        </div>
-      </div>
-    </div>
+    <%= render 'layouts/navigation' %>
 
     <div class="container">
       <div class="row">
         <div class="span12">
+          <% if flash[:alert] %>
+            <p class="alert alert-error"><%= flash[:alert] %></p>
+          <% end %>
+          <% if flash[:notice] %>
+            <p class="alert alert-success"><%= flash[:notice] %></p>
+          <% end %>
           <%= yield %>
         </div>
       </div><!--/row-->

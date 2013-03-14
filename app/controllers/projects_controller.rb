@@ -1,6 +1,20 @@
 class ProjectsController < InheritedResources::Base
-  
-  def dashboard
-    @sprint = resource.sprints.last
+  layout false, only: [:new, :edit]
+
+  def create
+    create! do |format|
+      format.html { redirect_to projects_path }
+    end
+  end
+
+  def update
+    update! do |format|
+      format.html { redirect_to projects_path }
+    end
+  end
+
+  def show
+    @sprint   = resource.sprints.last
+    show!
   end
 end

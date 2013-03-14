@@ -1,0 +1,55 @@
+<h2><%= @project.name %></h2>
+
+<div class="row">
+<div class="span3">
+  <h3 align="center"><%= t('stories') %></h3>
+  <ul>
+    <% @project.issues.each do |issue| %>
+      <li>
+        <%= issue.title %> <a href="#" class="icon-plus"></a>
+        <ul id="sortable1" class="connectedSortable">
+          <% issue.cards.each do |card| %>
+            <li><a tabindex="-1" href="#"><%= card.name %></a></li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="row">
+<div class="span3">
+  <h3 align="center"><%= t('todo') %></h3>
+  <ul id="sortable1" class="connectedSortable">
+    <% @sprint.todo_cards.each do |card| %>
+      <li><a tabindex="-1" href="#"><%= card.name %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="span3">
+  <h3 align="center"><%= t('doing') %></h3>
+  <ul id="sortable2" class="connectedSortable">
+    <% @sprint.doing_cards.each do |card| %>
+      <li><a tabindex="-1" href="#"><%= card.name %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="span3">
+  <h3 align="center"><%= t('done') %></h3>
+  <ul id="sortable3" class="connectedSortable">
+    <% @sprint.done_cards.each do |card| %>
+      <li><a tabindex="-1" href="#"><%= card.name %></a></li>
+    <% end %>
+  </ul>
+</div>
+</div>
+
+<script>
+  $(function() {
+    $( "#sortable1, #sortable2, #sortable3").sortable({
+      connectWith: ".connectedSortable"
+    }).disableSelection();
+  });
+</script>
